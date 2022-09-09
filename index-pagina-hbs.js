@@ -10,13 +10,30 @@ app.set('view engine', 'hbs');
 
 
 //respond with "hello world" when a GET request is made to the homepage
-app.get('*',(req,res)=>{
-  res.sendFile(__dirname + '/public/index.html')
-})
+app.get('/', function(req, res) {
+  res.render('home', {
+    titulo: 'Topicos Avanzados',
+    nombre: 'prueba nombre'
+  });
+});
+
+app.get('/generic', function(req, res) {
+  res.render('generic', {
+    titulo: 'Topicos Avanzados',
+    nombre: 'Generic'
+  });
+});
+
+app.get('/elements', function(req, res) {
+  res.render('elements', {
+    titulo: 'Topicos Avanzados',
+    nombre: 'Elements'
+  });
+});
+
 
 
 app.listen(port , () => {
 
   console.log(`escuchando por el puerto ${port}`)
 })
-
